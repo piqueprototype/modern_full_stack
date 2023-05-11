@@ -1,0 +1,1 @@
+* [Next.js installation](https://nextjs.org/docs/getting-started/installation)

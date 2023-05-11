@@ -128,3 +128,13 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Next.js
+public/
+
+# Django
+venv/
+db.sqlite3
+
+# PyCharm
+.idea
