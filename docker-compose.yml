@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  frontend-prod:
+    build:
+      context: .${NEXT_DIRECTORY}
+      target: runner
+    command: npm run start
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+
+  frontend-dev:
+    build:
+      context: .${NEXT_DIRECTORY}
+      target: deps
+    volumes:
+      - .${NEXT_DIRECTORY}:/app
+      - .${NEXT_DIRECTORY}/node_modules:/app/node_modules
+      - .${NEXT_DIRECTORY}/.next:/app/.next
+    command: npm run dev
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: development
