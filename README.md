@@ -27,5 +27,3 @@ python manage.py migrate  # Update the database
 ```bash
 COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker compose build
 ```
-
-
