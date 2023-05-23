@@ -4,6 +4,8 @@
 * [Somewhat Different Next.js](https://johnnymetz.com/posts/dockerize-nextjs-app/)
 
 # Django
+* [Setup.py guide](https://godatadriven.com/blog/a-practical-guide-to-using-setup-py/)
 * [Near perfect entrypoint.sh](https://faun.pub/the-near-perfect-dockerfile-for-django-applications-8bc352a1e871)
 * [Multi-stage dockerization for Django](https://blog.ploetzli.ch/2020/efficient-multi-stage-build-django-docker/)
+* [Alternative Guide for Dockerization of Django](https://blog.ploetzli.ch/tag/setup-py/)
 * [Why OS is better than slims](https://pythonspeed.com/articles/base-image-python-docker-images/)
