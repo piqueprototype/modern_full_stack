@@ -1,4 +1,5 @@
-#!/bin/bash# entrypoint.sh file of Dockerfile# Section 1- Bash options
+#!/bin/bash
+# entrypoint.sh file of Dockerfile# Section 1- Bash options
 set -o errexit
 set -o pipefail
 set -o nounsetSection 2: Health of dependent services
