@@ -22,9 +22,10 @@ RUN cp -r /install/* /usr/local
 RUN sh -c 'python manage.py collectstatic --no-input'
 
 FROM common 
+RUN apt update && apt install -y libpq-dev
 RUN mkdir -p /app
 COPY docker-entrypoint.sh /app/
 COPY --from=builder /install /usr/local
 COPY --from=static-builder /app/static.dist /app/static.dist 
 RUN ["chmod", "+x", "/app/docker-entrypoint.sh"]
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+ENTRYPOINT ["sh", "/app/docker-entrypoint.sh"]

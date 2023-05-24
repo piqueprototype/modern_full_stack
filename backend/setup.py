@@ -12,5 +12,6 @@ setup(name='Backend Utils',
           'requests',
           'schedule',
           'pysftp',
+          'redis',
       ]
      )
