@@ -135,6 +135,8 @@ public/
 # Django
 venv/
 db.sqlite3
+static.dist/
+__pycache__
 
 # PyCharm
 .idea

@@ -51,6 +51,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      DJANGO_EXECUTION_DIRECTORY: ${DJANGO_EXECUTION_DIRECTORY}
       DJANGO_POSTGRES_DATABASE: ${POSTGRES_DATABASE} 
       DJANGO_POSTGRES_USER: ${POSTGRES_USERNAME} 
       DJANGO_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -76,6 +77,7 @@ services:
     volumes:
       - postgresdb:/var/lib/postgresql/data
       # Uncomment if you actually have sql schema you'd like to insert
+      # On second thought, it probably makes more sense to let Django handle it all. Your call.
       # - db/init.sql:docker-entrypoint-initdb.d/create_tables.sql 
     networks:
       - locallan

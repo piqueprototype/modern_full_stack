@@ -27,5 +27,6 @@ RUN mkdir -p /app
 COPY docker-entrypoint.sh /app/
 COPY --from=builder /install /usr/local
 COPY --from=static-builder /app/static.dist /app/static.dist 
+COPY --from=static-builder /app /app 
 RUN ["chmod", "+x", "/app/docker-entrypoint.sh"]
 ENTRYPOINT ["sh", "/app/docker-entrypoint.sh"]
