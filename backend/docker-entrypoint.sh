@@ -18,7 +18,8 @@ try:
         host="${DJANGO_POSTGRES_HOST}",
         port="${DJANGO_POSTGRES_PORT}",
     )
-except OperationalError:
+except OperationalError as err:
+    print(err)
     sys.exit(-1)
 END
 }
@@ -29,9 +30,10 @@ import sys
 from redis import Redis
 from redis import RedisError
 try:
-    redis = Redis.from_url("${REDIS_URL}", db=0)
+    redis = Redis.from_url("${REDIS_URL}", db=0, username="default", password="${REDIS_PASSWORD}")
     redis.ping()
-except RedisError:
+except RedisError as err:
+    print(err)
     sys.exit(-1)
 END
 }
@@ -54,6 +56,9 @@ done
 >&2 echo "Redis is available"
 
 # Section 3- Idempotent Django commands
+cd ${DJANGO_EXECUTION_DIRECTORY}
 python manage.py collectstatic --noinput
 python manage.py makemigrations
-python manage.py migrateexec "$@"
+python manage.py migrate
+python manage.py runserver 0.0.0.0:8000
+exec "$@"
