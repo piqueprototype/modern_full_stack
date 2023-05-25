@@ -4,6 +4,7 @@ services:
   frontend-prod:
     depends_on:
       - db
+      - redis
     build:
       context: .${NEXT_DIRECTORY}
       target: runner
@@ -12,12 +13,15 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: production
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_HOST: ${REDIS_HOST}
     networks:
       - locallan
 
   frontend-dev:
     depends_on:
       - db
+      - redis
     build:
       context: .${NEXT_DIRECTORY}
       target: deps
@@ -30,12 +34,15 @@ services:
       - "3001:3000"
     environment:
       NODE_ENV: development
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_HOST: ${REDIS_HOST}
     networks:
       - locallan
 
   backend:
     depends_on:
       - db
+      - redis
     build:
       context: .${DJANGO_DIRECTORY}
     command: "chmod -x /app/docker-entrypoint.sh ; ./app/docker-entrypoint.sh ;"
@@ -49,6 +56,9 @@ services:
       DJANGO_POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DJANGO_POSTGRES_HOST: ${POSTGRES_HOST}
       DJANGO_POSTGRES_PORT: ${POSTGRES_PORT}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_HOST: ${REDIS_HOST}
+      REDIS_URL: ${REDIS_URL}
     networks:
       - locallan
 
@@ -59,6 +69,8 @@ services:
       POSTGRES_USER: ${POSTGRES_USERNAME} 
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DATABASE}
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+      REDIS_HOST: ${REDIS_HOST}
     ports:
       - '${POSTGRES_PORT}:${POSTGRES_PORT}'
     volumes:
@@ -71,10 +83,13 @@ services:
   redis:
     restart: always
     image: redis:7-alpine
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASSWORD}
     ports:
       - '${REDIS_PORT}:${REDIS_PORT}'
     depends_on:
       - db
+    volumes:
+      - rediscache:/data
     networks:
       - locallan
 
@@ -84,4 +99,6 @@ networks:
 
 volumes:
   postgresdb:
+    driver: local
+  rediscache:
     driver: local
