@@ -23,4 +23,7 @@ python manage.py startapp api  # Creates an application within the system of "ba
 python manage.py migrate  # Update the database
 ```
 
-
+## Dockerization
+```bash
+COMPOSE_DOCKER_CLI_BUILD=1 DOCKER_BUILDKIT=1 docker compose build
+```
