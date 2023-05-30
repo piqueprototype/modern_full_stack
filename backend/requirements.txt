@@ -6,3 +6,4 @@ schedule
 pysftp
 redis
 python-dotenv
+django-redis

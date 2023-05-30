@@ -14,5 +14,6 @@ setup(name='Backend Utils',
           'pysftp',
           'redis',
           'python-dotenv',
+          'django-redis',
       ]
      )
