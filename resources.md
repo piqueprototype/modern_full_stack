@@ -13,9 +13,16 @@
 * [Multi-stage dockerization for Django](https://blog.ploetzli.ch/2020/efficient-multi-stage-build-django-docker/)
 * [Alternative Guide for Dockerization of Django](https://blog.ploetzli.ch/tag/setup-py/)
 * [Why OS is better than slims](https://pythonspeed.com/articles/base-image-python-docker-images/)
+* [Connect to Postgres](https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8)
+* [Generate Random Secret Key](https://codinggear.blog/django-generate-secret-key/)
+* [Use Environment Variables](https://codinggear.blog/django-environment-variables/)
 
+# Redis (on Django)
+* [Setting up Redis in settings.py](https://realpython.com/caching-in-django-with-redis/)
+* [Usage / Testing Redis](https://redis.io/docs/clients/python/)
 
 # Postgresql
 * [Docker Compose settings](https://geshan.com.np/blog/2021/12/docker-postgres/)
+
 ## Troubleshooting
 * [Database didn't initialize as expected?](https://stackoverflow.com/questions/48629799/postgres-image-is-not-creating-database)

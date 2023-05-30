@@ -13,5 +13,7 @@ setup(name='Backend Utils',
           'schedule',
           'pysftp',
           'redis',
+          'python-dotenv',
+          'django-redis',
       ]
      )
