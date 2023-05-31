@@ -16,6 +16,8 @@
 * [Connect to Postgres](https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8)
 * [Generate Random Secret Key](https://codinggear.blog/django-generate-secret-key/)
 * [Use Environment Variables](https://codinggear.blog/django-environment-variables/)
+* [Using Templates](https://www.pluralsight.com/guides/introduction-to-django-templates)
+* [Rest Framework example](https://blog.logrocket.com/django-rest-framework-create-api/)
 
 # Redis (on Django)
 * [Setting up Redis in settings.py](https://realpython.com/caching-in-django-with-redis/)
