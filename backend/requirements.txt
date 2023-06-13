@@ -7,3 +7,4 @@ pysftp
 redis
 python-dotenv
 django-redis
+openai

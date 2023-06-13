@@ -15,5 +15,6 @@ setup(name='Backend Utils',
           'redis',
           'python-dotenv',
           'django-redis',
+          'openai',
       ]
      )

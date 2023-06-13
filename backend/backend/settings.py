@@ -18,6 +18,11 @@ load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# OpenAPI variables
+OPENAI_API_KEY=os.environ.get("OPENAI_API_KEY")
+OPENAI_ENGINE=os.environ.get("OPENAI_ENGINE")
+OPENAI_MAX_TOKENS=os.environ.get("OPENAI_MAX_TOKENS")
+OPENAI_TEMPERATURE=os.environ.get("OPENAI_TEMPERATURE")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
